@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		<!-- 
+			beans.xml is a Spring Bean configuration file that supports XML based
+			ApplicationContext configuration.  This file can be loaded and parsed for 
+			Spring to configure itself and be informed of beans that it can manage for us.
+		 -->
+
+		<!-- 
+			Bean Scope - Defines what the scope of a bean is (under what conditions is this bean returned
+				again vs being recreated).
+				
+				singleton - Only one instance, never recreate one.
+				prototype - Always give me a new one
+				request - Create a bean for each request (new bean for each HTTP request)
+				session - Create a bean for each user session (for each unique user)
+		 -->
+
+		<!-- 
+			Autowire - Default method for how dependencies should be resolved.  Default is: no
+			no - no autowiring
+			byType - Autowire by property type
+			byName - Autowire property name to bean with same name, or nothing
+			constructor - Similar to byType but for property constructor
+		 -->
+		 
+		 <bean name="interstellar" class="com.revature.models.Movie" primary="true" scope="" autowire="byType">
+		 	<property name="id" value="1" />
+		 	<property name="title" value="Interstellar" />
+		 	<property name="genre" value="Sci-Fi" />
+		 	<!-- This bean is configured to autowire and so will autowire the default actor to starringActor -->
+		 </bean>
+
+		 <bean id="groundhog-day" name="groundhog-day" class="com.revature.models.Movie" scope="prototype" >
+		 	<property name="id" value="2" />
+		 	<property name="title" value="Groundhog Day" />
+		 	<property name="genre" value="Comedy" />
+		 	<property name="starringActor" ref="bill-murray" />
+		 </bean>
+		 
+		 <bean id="bill-murray" class="com.revature.models.Actor">
+		 	<property name="id" value="1" />
+		 	<property name="name" value="Bill Murray" />
+		 </bean>
+		 
+		 <bean id="matt-damon" class="com.revature.models.Actor" primary="true">
+		 	<property name="id" value="2" />
+		 	<property name="name" value="Matt Damon" />
+		 </bean>
+</beans>
