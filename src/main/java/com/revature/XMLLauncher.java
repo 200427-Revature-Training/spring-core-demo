@@ -12,6 +12,13 @@ import com.revature.models.Movie;
  * In the Spring framework, Inversion of Control is accomplished through dependency
  * injection. (DI is the mechanism for accomplishing IoC).
  * 
+ * ApplicationContext is built on a previous DI container called the "BeanFactory". The 
+ * ApplicationContext applies additional functionality to the BeanFactory, for instance
+ * 	1. Messaging service
+ *  2. Tools for i18n (internationalization)
+ *  3. Automatic BeanPostProcessor registration
+ *  4. Automatic BeanFactoryPostProcessor registration
+ * 
  * IoC - Inversion of Control
  * DI - Dependency Injection
  * 
