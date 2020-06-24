@@ -9,6 +9,9 @@ import com.revature.models.Movie;
 /**
  * ApplicationContext is known as the IoC container (or DI container).
  * It represents the top level context for Spring within our Java application.
+ * In the Spring framework, Inversion of Control is accomplished through dependency
+ * injection. (DI is the mechanism for accomplishing IoC).
+ * 
  * IoC - Inversion of Control
  * DI - Dependency Injection
  * 
